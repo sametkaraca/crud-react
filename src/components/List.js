@@ -16,7 +16,7 @@ class List extends Component{
                         />
                     })       
                 }
-                <button onClick={removeList} type="button"><i className="fas fa-minus-circle"></i></button>
+                <button className="btn btn-danger mt-4 pr-5 pl-5" onClick={removeList} type="button"><i className="fas fa-minus-circle"></i></button>
             </ul>
         )
     }

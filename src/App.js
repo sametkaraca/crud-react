@@ -69,16 +69,16 @@ class App extends Component {
   render() {
     return(
     <div className="App">
-        <Input item={this.state.item} 
-          handleChange={this.handleChange} 
-          handleSubmit={this.handleSubmit}
-          editItem={this.state.editItem}
+          <Input item={this.state.item} 
+            handleChange={this.handleChange} 
+            handleSubmit={this.handleSubmit}
+            editItem={this.state.editItem}
+            />
+          <List items={this.state.items} 
+          removeList={this.removeList} 
+          handleDeleteItem={this.handleDeleteItem} 
+          handleEditItem={this.handleEditItem}
           />
-        <List items={this.state.items} 
-        removeList={this.removeList} 
-        handleDeleteItem={this.handleDeleteItem} 
-        handleEditItem={this.handleEditItem}
-        />
     </div>
     )}
 }
