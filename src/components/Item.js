@@ -1,13 +1,12 @@
 import React, {Component} from 'react'
-
 class Item extends Component{
     render() {
-        const { title } = this.props
+        const { title, handleDeleteItem } = this.props
         return (
             <li>
                 <h6>{title}</h6>
-                <span>List Icon</span>
-                <span>Remove Icon</span>
+                <i className="fas fa-edit"></i>
+                <i onClick={handleDeleteItem} className="fas fa-trash"></i>
             </li>
         )
     }

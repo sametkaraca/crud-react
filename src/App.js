@@ -3,6 +3,7 @@ import './App.css';
 import Input from './components/Input';
 import List from './components/List';
 import uuid from 'uuid';
+
 class App extends Component {
   
   state = {
@@ -46,13 +47,20 @@ class App extends Component {
     })
   }
 
+  handleDeleteItem = (id) =>{
+      const filteredItems = this.state.items.filter(item =>item.id !== id)
+      this.setState({
+          items:filteredItems
+      })
+    }
+
   render() {
     return(
     <div className="App">
         <Input item={this.state.item} 
           handleChange={this.handleChange} 
           handleSubmit={this.handleSubmit}/>
-        <List items={this.state.items} removeList={this.removeList} />
+        <List items={this.state.items} removeList={this.removeList} handleDeleteItem={this.handleDeleteItem} />
     </div>
     )}
 }
