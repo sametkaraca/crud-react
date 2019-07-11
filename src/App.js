@@ -47,11 +47,23 @@ class App extends Component {
     })
   }
 
-  handleDeleteItem = (id) =>{
+  handleDeleteItem = id =>{
       const filteredItems = this.state.items.filter(item =>item.id !== id)
       this.setState({
           items:filteredItems
       })
+    }
+
+    handleEditItem = id =>{
+      const filteredItems = this.state.items.filter(item =>item.id !== id)
+      const selectedItem = this.state.items.find(item => item.id === id)
+
+      //console.log(selectedItem)
+      this.setState({
+        items: filteredItems,
+        item: selectedItem.title
+      })
+
     }
 
   render() {
@@ -59,8 +71,14 @@ class App extends Component {
     <div className="App">
         <Input item={this.state.item} 
           handleChange={this.handleChange} 
-          handleSubmit={this.handleSubmit}/>
-        <List items={this.state.items} removeList={this.removeList} handleDeleteItem={this.handleDeleteItem} />
+          handleSubmit={this.handleSubmit}
+          editItem={this.state.editItem}
+          />
+        <List items={this.state.items} 
+        removeList={this.removeList} 
+        handleDeleteItem={this.handleDeleteItem} 
+        handleEditItem={this.handleEditItem}
+        />
     </div>
     )}
 }

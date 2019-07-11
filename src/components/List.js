@@ -3,7 +3,7 @@ import Item from './Item'
 
 class List extends Component{
     render() {
-        const {items, removeList, handleDeleteItem} = this.props
+        const {items, removeList, handleDeleteItem, handleEditItem} = this.props
         return (
             <ul>
                 {
@@ -11,7 +11,9 @@ class List extends Component{
                         return <Item 
                         key={item.id} 
                         title={item.title} 
-                        handleDeleteItem={()=>handleDeleteItem(item.id)} />
+                        handleDeleteItem={()=>handleDeleteItem(item.id)} 
+                        handleEditItem={()=>handleEditItem(item.id)} 
+                        />
                     })       
                 }
                 <button onClick={removeList} type="button"><i className="fas fa-minus-circle"></i></button>
